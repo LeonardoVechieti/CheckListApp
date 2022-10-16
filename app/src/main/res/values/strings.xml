@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CheckListApp</string>
+    <string name="title_login">Login CheckList</string>
+    <string name="string_senha">Digite sua senha</string>
+    <string name="string_usuario">Digite seu usuário</string>
+    <string name="string_copywrite">\@copywrite: 2022</string>
+    <string name="string_entrar">Login</string>
+</resources>
