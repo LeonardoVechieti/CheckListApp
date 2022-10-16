@@ -18,24 +18,39 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding.editUser.setOnClickListener(this)
         binding.editPassword.setOnClickListener(this)
         supportActionBar!!.hide()
+        //verifica se o usuário já está logado
+        verifyUserLogged()
         setContentView(binding.root)
         //setContentView(R.layout.activity_main)
     }
 
     override fun onClick(view: View) {
         if (view.id == R.id.button_login) {
-            val usuario = binding.editUser.text.toString()
-            val senha = binding.editPassword.text.toString()
-            if (usuario == "Operador" && senha == "op") {
-                Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Welcome::class.java)
-                intent.putExtra("name", usuario)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show()
-            }
+            login()
         }
     }
 
+    fun login(){
+        val usuario = binding.editUser.text.toString()
+        val senha = binding.editPassword.text.toString()
+        if (usuario == "Operador" && senha == "op") {
+            SecurityPreferences(this).storeString("username", usuario)
+            Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Welcome::class.java)
+            intent.putExtra("name", usuario)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show()
+        }
+    }
 
+    private fun verifyUserLogged() {
+        val username = SecurityPreferences(this).getString("username")
+        if (username != "") {
+            val intent = Intent(this, Welcome::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
+        }
+    }
 }
+
