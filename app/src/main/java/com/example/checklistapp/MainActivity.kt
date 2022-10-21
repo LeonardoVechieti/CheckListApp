@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding.editUser.setOnClickListener(this)
         binding.editPassword.setOnClickListener(this)
         supportActionBar!!.hide()
-        //verifica se o usuário já está logado
-        verifyUserLogged()
+        //primeiro acesso
+        primeiroAcesso()
         setContentView(binding.root)
         //setContentView(R.layout.activity_main)
     }
@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     fun login(){
         val usuario = binding.editUser.text.toString()
         val senha = binding.editPassword.text.toString()
-        if (usuario == "Operador" && senha == "op") {
+        val securityPreferencesUsuario = SecurityPreferences(this).getString("usuarioPadrao")
+        val securityPreferencesSenha = SecurityPreferences(this).getString("senhaPadrao")
+        if (usuario == securityPreferencesUsuario && senha == securityPreferencesSenha) {
             SecurityPreferences(this).storeString("username", usuario)
             Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Welcome::class.java)
@@ -44,12 +46,24 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         }
     }
 
-    private fun verifyUserLogged() {
-        val username = SecurityPreferences(this).getString("username")
-        if (username != "") {
+    private fun verificaSePossuiLogin() {
+        val userAdmin = SecurityPreferences(this).getString("userAdmin")
+        val userSenha = SecurityPreferences(this).getString("senhaAdmin")
+        if (userSenha != "") {
             val intent = Intent(this, Welcome::class.java)
-            intent.putExtra("username", username)
+            intent.putExtra("userAdmin", userAdmin)
             startActivity(intent)
+        }
+    }
+    private fun primeiroAcesso() {
+        val userAdmin = SecurityPreferences(this).getString("userAdmin")
+        val senhaAdmin = SecurityPreferences(this).getString("senhaAdmin")
+        if ( senhaAdmin == "" && userAdmin == "") {
+            val intent = Intent(this, DefineSenha::class.java)
+            intent.putExtra("userAdmin", userAdmin)
+            startActivity(intent)
+        } else {
+            verificaSePossuiLogin()
         }
     }
 }

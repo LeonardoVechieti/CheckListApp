@@ -1,5 +1,6 @@
 package com.example.checklistapp
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,8 +26,9 @@ class Welcome : AppCompatActivity(), View.OnClickListener {
         TODO("Not yet implemented")
     }
 
+    @SuppressLint("SetTextI18n")
     private fun verifyUserName() {
-        val username =  SecurityPreferences(this).getString("username")
+        val username =  SecurityPreferences(this).getString("usuarioPadrao")
         binding.nomeUsuario.text = "Olá, $username!"
     }
 
