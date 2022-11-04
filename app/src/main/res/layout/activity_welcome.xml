@@ -78,7 +78,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add"
+        app:srcCompat="@drawable/ic__add_branco"
         tools:ignore="MissingConstraints"
         android:layout_margin="15dp"
         android:focusable="true" />
