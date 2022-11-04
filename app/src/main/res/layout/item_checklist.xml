@@ -1,0 +1,82 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="15dp"
+    app:cardElevation="24dp"
+    android:clickable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_nome_motorista"
+            android:layout_width="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_height="wrap_content"
+            android:text="Nome do Motorista"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_veiculo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_placa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="PLACA-01"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_nome_motorista"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nome_motorista" />
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Status: Aberto"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_placa"
+            app:layout_constraintTop_toBottomOf="@+id/txt_placa" />
+
+        <TextView
+            android:id="@+id/txt_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Data: "
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_status"
+            app:layout_constraintTop_toBottomOf="@+id/txt_status" />
+
+        <ImageView
+            android:id="@+id/img_veiculo"
+            android:layout_width="80dp"
+            android:layout_height="74dp"
+            android:src="@drawable/ic_baseline_check_verde"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_data"
+            android:layout_marginEnd="16dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
