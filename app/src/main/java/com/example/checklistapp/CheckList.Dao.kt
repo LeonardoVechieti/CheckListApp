@@ -20,4 +20,7 @@ interface CheckListDao {
 
     @Update
     fun updateChecklist(task: CheckList)
+
+    @Query ("UPDATE CheckList SET finalizado = :finalizado WHERE id = :id")
+    fun atualizaChecklist(id: String, finalizado: Boolean)
 }
