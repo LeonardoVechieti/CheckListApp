@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15dp"
@@ -75,6 +76,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txt_data"
             android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/cardItem"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_play_next"
+            app:layout_constraintEnd_toStartOf="@+id/img_delete"
+            app:layout_constraintTop_toTopOf="@+id/txt_data" />
 
 
 

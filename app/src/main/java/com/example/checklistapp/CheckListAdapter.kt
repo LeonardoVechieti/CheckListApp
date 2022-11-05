@@ -16,6 +16,7 @@ class CheckListAdapter(private var checklist: ArrayList<CheckList>, private var 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val delete_button = itemView.findViewById<ImageView>(R.id.img_delete)
+        val card_button = itemView.findViewById<ImageView>(R.id.cardItem)
         fun bind(checklist: CheckList) {
             itemView.findViewById<TextView>(R.id.txt_nome_motorista).text = checklist.nomeMotorista
             itemView.findViewById<TextView>(R.id.txt_placa).text = checklist.placa
@@ -41,11 +42,18 @@ class CheckListAdapter(private var checklist: ArrayList<CheckList>, private var 
         holder.bind(checklist)
         holder.delete_button.setOnClickListener{
             AlertDialog.Builder(this.context)
-                .setTitle("Deletar ${checklist.nomeMotorista} ?")
+                .setTitle("Deletar ${checklist.placa} ?")
                 .setPositiveButton("Confirmar",{ _, _-> deleteItem(checklist) })
                 .setNegativeButton(" Cancelar",{ _, _->})
                 .show()
         }
+        holder.card_button.setOnClickListener{
+            val intent = android.content.Intent(context, RealizaCheckList::class.java)
+            intent.putExtra("id", checklist.id)
+            context.startActivity(intent)
+            //Toast.makeText(context, "${checklist.id}", Toast.LENGTH_SHORT).show()
+
+       }
     }
     fun deleteItem(item: CheckList){
         this.checklist.remove(item)
@@ -59,6 +67,21 @@ class CheckListAdapter(private var checklist: ArrayList<CheckList>, private var 
             Toast.LENGTH_SHORT).show()
         this.notifyDataSetChanged()
     }
+
+    // fun update checkList
+    fun atualizaCheckList(checklist: CheckList){
+        var db = Room.databaseBuilder(
+            context, CheckListDatabase::class.java,
+            "CheckListDatabase1.db"
+        ).allowMainThreadQueries().build()
+        val dao = db.CheckListDao()
+        dao.updateChecklist(checklist)
+        Toast.makeText(context, "Atualizado com sucesso",
+            Toast.LENGTH_SHORT).show()
+        this.notifyDataSetChanged()
+    }
+
+
 
     override fun getItemCount(): Int {
         return this.checklist.size
