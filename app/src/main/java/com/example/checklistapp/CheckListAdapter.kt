@@ -20,10 +20,14 @@ class CheckListAdapter(private var checklist: ArrayList<CheckList>, private var 
         fun bind(checklist: CheckList) {
             itemView.findViewById<TextView>(R.id.txt_nome_motorista).text = checklist.nomeMotorista
             itemView.findViewById<TextView>(R.id.txt_placa).text = checklist.placa
-            var status = checklist.finalizado.toString()
-            if(status == "true"){
-                status = "Status: Finalizado"
-            }else if(status == "false") {
+            var status = checklist.status
+            if(status == "conforme"){
+                status = "Status: Conforme"
+                itemView.findViewById<TextView>(R.id.txt_status).text = status
+            }else if(status == "não conforme"){
+                status = "Status: Não Conforme"
+                itemView.findViewById<TextView>(R.id.txt_status).text = status
+            }else if (status == "pendente"){
                 status = "Status: Pendente"
                 itemView.findViewById<TextView>(R.id.txt_status).text = status
             }

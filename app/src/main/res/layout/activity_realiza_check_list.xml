@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="match_parent">
+
+
 
     <LinearLayout
         android:id="@+id/menu"
@@ -30,6 +32,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item1"
                     android:layout_width="342dp"
                     android:layout_height="44dp"
                     android:checked="false"
@@ -60,6 +63,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item2"
                     android:layout_width="342dp"
                     android:layout_height="44dp"
                     android:checked="false"
@@ -90,6 +94,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item3"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
@@ -120,6 +125,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item4"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
@@ -150,6 +156,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item5"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
@@ -180,6 +187,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item6"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
@@ -210,6 +218,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item7"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
@@ -240,10 +249,11 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item8"
                     android:layout_width="342dp"
                     android:layout_height="match_parent"
                     android:checked="false"
-                    android:text="Compartimento de carga limpo, sem odores, pragas ou resto de carga anterior"
+                    android:text="Pneus em bom estado"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="MissingConstraints"
@@ -251,6 +261,113 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="18dp"
+            app:cardElevation="24dp"
+            android:clickable="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item9"
+                    android:layout_width="342dp"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:text="Não possui vazamento de diesel e óleos lubrificantes"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="4dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="18dp"
+            app:cardElevation="24dp"
+            android:clickable="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/item10"
+                    android:layout_width="342dp"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:text="Condições do Pré Cinto em bom estado"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="4dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonNaoConforme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:text="Não Conforme"
+                android:textSize="17sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/buttonConforme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="4"
+                android:text="Conforme"
+                android:textSize="17sp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#009688"
+                />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
-</RelativeLayout>
+
+
+
+
+
+
+</ScrollView>
+

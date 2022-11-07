@@ -14,6 +14,8 @@ class DefineSenha : AppCompatActivity(), View.OnClickListener {
         binding = ActivityDefineSenhaBinding.inflate(layoutInflater)
         binding.buttonDefineSenha.setOnClickListener(this)
         setContentView(binding.root)
+        //remove action bar
+        supportActionBar!!.hide()
 
     }
 

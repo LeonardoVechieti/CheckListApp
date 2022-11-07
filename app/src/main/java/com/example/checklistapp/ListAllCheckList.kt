@@ -22,8 +22,6 @@ class ListAllCheckList : AppCompatActivity(), View.OnClickListener {
             "CheckListDatabase1.db"
         ).allowMainThreadQueries().build()
 
-        //val checkListDao = db.CheckListDao()
-        //checkListDao.insereChecklist(CheckList( "ABC1234", "Leonardo", false , "01/01/2021",  true))
     }
 
     override fun onClick(v: View?) {
@@ -32,17 +30,45 @@ class ListAllCheckList : AppCompatActivity(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        val db = Room.databaseBuilder(
-            this,
-            CheckListDatabase::class.java,
-            "CheckListDatabase1.db"
-        ).allowMainThreadQueries().build()
+        //pega definicao
+        val definition = intent.getStringExtra("definition")
+        if (definition != null) {
+            val db = Room.databaseBuilder(
+                this,
+                CheckListDatabase::class.java,
+                "CheckListDatabase1.db"
+            ).allowMainThreadQueries().build()
 
-        val checkListDao = db.CheckListDao()
+            val checkListDao = db.CheckListDao()
+            checkListDao.buscaChecklist()
+            val checkLists = checkListDao.buscaChecklist()
+            binding.recyclerChecklist.adapter = CheckListAdapter(checkLists as ArrayList<CheckList>, this)
+            binding.recyclerChecklist.layoutManager = LinearLayoutManager(this)
 
-        val checkLists = checkListDao.buscaChecklist()
-        binding.recyclerChecklist.adapter = CheckListAdapter(checkLists as ArrayList<CheckList>, this)
-        binding.recyclerChecklist.layoutManager = LinearLayoutManager(this)
+        } else if (definition == "all"){
+            val db = Room.databaseBuilder(
+                this,
+                CheckListDatabase::class.java,
+                "CheckListDatabase1.db"
+            ).allowMainThreadQueries().build()
+            val checkListDao = db.CheckListDao()
+            val checkLists = checkListDao.buscaChecklist()
+            binding.recyclerChecklist.adapter = CheckListAdapter(checkLists as ArrayList<CheckList>, this)
+            binding.recyclerChecklist.layoutManager = LinearLayoutManager(this)
+
+        } else if (definition == "pendente"){
+            val db = Room.databaseBuilder(
+                this,
+                CheckListDatabase::class.java,
+                "CheckListDatabase1.db"
+            ).allowMainThreadQueries().build()
+
+            val checkListDao = db.CheckListDao()
+
+            val checkLists = checkListDao.buscaChecklistPorStatus("pendente")
+            binding.recyclerChecklist.adapter = CheckListAdapter(checkLists as ArrayList<CheckList>, this)
+            binding.recyclerChecklist.layoutManager = LinearLayoutManager(this)
+        }
     }
 
 
