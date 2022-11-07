@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="25dp"
     android:background="@color/verde_tema"
-    tools:context=".MainActivity">
+    tools:context=".DefineSenha">
 
     <ImageView
         android:id="@+id/imageView"
@@ -34,12 +34,13 @@
         app:layout_constraintVertical_bias="0.137" />
 
     <EditText
-        android:id="@+id/edit_user"
+        android:id="@+id/edit_define_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:hint="@string/string_usuario"
+        android:hint="Digite sua nova senha"
         android:padding="16dp"
+        android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,30 +48,30 @@
         app:layout_constraintTop_toTopOf="@id/title_login" />
 
     <EditText
-        android:id="@+id/edit_password"
+        android:id="@+id/edit_define_confirma_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/string_senha"
+        android:hint="@string/confima_sua_nova_senha"
         android:textColor="@color/white"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_user" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_define_senha" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_define_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#0D6363"
-        android:text="@string/string_entrar"
+        android:text="@string/definir_nova_senha"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_define_confirma_senha" />
 
     <View
         android:id="@+id/view"
@@ -78,10 +79,10 @@
         android:layout_height="3dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintEnd_toEndOf="@+id/button_define_senha"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintStart_toStartOf="@+id/button_define_senha"
+        app:layout_constraintTop_toBottomOf="@+id/button_define_senha"
         app:layout_constraintVertical_bias="0.307" />
 
     <TextView
@@ -94,9 +95,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

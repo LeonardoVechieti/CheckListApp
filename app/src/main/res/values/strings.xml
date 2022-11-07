@@ -5,4 +5,8 @@
     <string name="string_usuario">Digite seu usuário</string>
     <string name="string_copywrite">\@copywrite: 2022</string>
     <string name="string_entrar">Login</string>
+    <string name="definir_nova_senha">Definir nova senha</string>
+    <string name="confima_sua_nova_senha">Confima sua nova senha</string>
+    <string name="digite_o_nome_do_usuario_padrao">Digite o nome do usuário</string>
+    <string name="placa_do_veiculo">Placa do veículo</string>
 </resources>
