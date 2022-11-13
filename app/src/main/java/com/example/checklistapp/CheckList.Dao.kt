@@ -33,4 +33,7 @@ interface CheckListDao {
     @Query ("SELECT * FROM CheckList WHERE status = :status")
     fun buscaChecklistPorStatus(status: String): List<CheckList>
 
+    @Query ("SELECT * FROM CheckList WHERE placa = :placa")
+    fun buscaChecklistPorPlaca(placa: String): List<CheckList>
+
 }
