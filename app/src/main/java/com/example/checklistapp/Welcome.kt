@@ -30,6 +30,8 @@ class Welcome : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         if (view.id == R.id.menu_list) {
             val intent = Intent(this, ListAllCheckList::class.java)
+            //passa a definicao
+            intent.putExtra("definition", "all")
             startActivity(intent)
         }
         if (view.id == R.id.menu_new || view.id == R.id.button_new_float) {
@@ -37,7 +39,7 @@ class Welcome : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
         if(view.id == R.id.menu_search){
-            val intent = Intent(this, RealizaCheckList::class.java)
+            val intent = Intent(this, SearchCheckList::class.java)
             startActivity(intent)
         }
     }

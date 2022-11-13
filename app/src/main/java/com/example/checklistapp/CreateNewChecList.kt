@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.checklistapp.databinding.ActivityCreateNewChecListBinding
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -32,17 +33,15 @@ class CreateNewChecList : AppCompatActivity(), View.OnClickListener {
 
     fun addNewCheckList(){
 
-        //obtem data atual
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-        val dataAtual = "$day/$month/$year"
-        //formata data atual
-        val dataAtualFormatada = dataAtual.replace("/0", "/").replace("/0", "/")
+        //pega data atual
+        val formataData = SimpleDateFormat("dd/MM/yyyy")
+        val data = Date()
+        val dataAtualFormatada = formataData.format(data)
 
 
-        val placa = binding.textPlaca.text.toString()
+        val placaMinuscula = binding.textPlaca.text.toString()
+        //tranforma a placa em maiuscula
+        val placa = placaMinuscula.toUpperCase()
         val nomeMotorista = binding.textNomeMotorista.text.toString()
         //Toast.makeText(this, "Cliquei", Toast.LENGTH_SHORT).show()
 
@@ -54,7 +53,7 @@ class CreateNewChecList : AppCompatActivity(), View.OnClickListener {
             ).allowMainThreadQueries().build()
 
             val checkListDao = db.CheckListDao()
-            checkListDao.insereChecklist(CheckList( placa, nomeMotorista, false , dataAtualFormatada,  true))
+            checkListDao.insereChecklist(CheckList( placa, nomeMotorista, "pendente" , dataAtualFormatada,  false))
             Toast.makeText(this, "Criado com sucesso!", Toast.LENGTH_SHORT).show()
             finish()
         } else {

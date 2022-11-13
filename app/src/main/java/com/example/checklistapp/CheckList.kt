@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 
 
 @Entity
- class CheckList (placa: String,nomeMotorista: String,  finalizado: Boolean, data: String, item1: Boolean  ) {
+ class CheckList (placa: String,nomeMotorista: String,  status: String, data: String, item1: Boolean  ) {
     @PrimaryKey (autoGenerate = true) var id: Int = 0
     @ColumnInfo var placa: String = placa
     @ColumnInfo var nomeMotorista: String = nomeMotorista
-    @ColumnInfo var finalizado: Boolean = finalizado
+    @ColumnInfo var status: String = status
     @ColumnInfo var data: String = data
     @ColumnInfo var item1: Boolean = item1
     @ColumnInfo var item2: Boolean = false
