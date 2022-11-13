@@ -39,7 +39,9 @@ class CreateNewChecList : AppCompatActivity(), View.OnClickListener {
         val dataAtualFormatada = formataData.format(data)
 
 
-        val placa = binding.textPlaca.text.toString()
+        val placaMinuscula = binding.textPlaca.text.toString()
+        //tranforma a placa em maiuscula
+        val placa = placaMinuscula.toUpperCase()
         val nomeMotorista = binding.textNomeMotorista.text.toString()
         //Toast.makeText(this, "Cliquei", Toast.LENGTH_SHORT).show()
 
