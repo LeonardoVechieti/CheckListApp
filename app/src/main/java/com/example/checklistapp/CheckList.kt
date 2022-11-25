@@ -1,10 +1,7 @@
 package com.example.checklistapp
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
-
 
 @Entity
  class CheckList (placa: String,nomeMotorista: String,  status: String, data: String, item1: Boolean  ) {
@@ -23,9 +20,6 @@ import androidx.room.PrimaryKey
     @ColumnInfo var item8: Boolean = false
     @ColumnInfo var item9: Boolean = false
     @ColumnInfo var item10: Boolean = false
-
-
-
 }
 
 

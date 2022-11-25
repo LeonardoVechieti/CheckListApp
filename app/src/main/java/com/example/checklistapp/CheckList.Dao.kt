@@ -8,7 +8,6 @@ import androidx.room.Update
 
 @Dao
 interface CheckListDao {
-
     @Query("SELECT * FROM CheckList")
     fun buscaChecklist(): List<CheckList>
 
@@ -35,5 +34,4 @@ interface CheckListDao {
 
     @Query ("SELECT * FROM CheckList WHERE placa = :placa")
     fun buscaChecklistPorPlaca(placa: String): List<CheckList>
-
 }

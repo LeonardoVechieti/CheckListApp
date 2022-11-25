@@ -32,13 +32,10 @@ class CreateNewChecList : AppCompatActivity(), View.OnClickListener {
     }
 
     fun addNewCheckList(){
-
         //pega data atual
         val formataData = SimpleDateFormat("dd/MM/yyyy")
         val data = Date()
         val dataAtualFormatada = formataData.format(data)
-
-
         val placaMinuscula = binding.textPlaca.text.toString()
         //tranforma a placa em maiuscula
         val placa = placaMinuscula.toUpperCase()
@@ -57,8 +54,12 @@ class CreateNewChecList : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "Criado com sucesso!", Toast.LENGTH_SHORT).show()
             finish()
         } else {
-            binding.textPlaca.error = "Preencha a placa"
-            binding.textNomeMotorista.error = "Preencha o nome do motorista"
+            if(binding.textPlaca.text.toString().isEmpty()){
+                binding.textPlaca.error = "Campo obrigatório"
+            }
+            if(binding.textNomeMotorista.text.toString().isEmpty()){
+                binding.textNomeMotorista.error = "Campo obrigatório"
+            }
         }
 
 

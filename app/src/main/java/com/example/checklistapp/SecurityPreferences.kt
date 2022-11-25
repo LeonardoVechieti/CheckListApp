@@ -2,8 +2,6 @@ package com.example.checklistapp
 import android.content.Context
 import android.content.SharedPreferences
 
-
-
 class SecurityPreferences (context: Context) {
 
     private val securityPreferences: SharedPreferences = context.getSharedPreferences("checklist", Context.MODE_PRIVATE)
