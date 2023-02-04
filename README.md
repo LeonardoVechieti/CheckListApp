@@ -1,4 +1,5 @@
-# CheckListApp
+# Check List App
+
 O sistema desenvolvido tem como objetivo facilitar e aprimorar a organização de processos de controle de qualidade em empresas de produção e expedição de alimentos, transformando métodos manuais em digitais.
 Armazenar os dados de forma eletrônica através de um banco de dados relacional, organizando as informações de modo a facilitar a criação um histórico de dados referente aos itens de checagem de conformidades e não conformidades, que em um futuro aprimoramento do software podendo ser gerado relatórios de dados de forma impressa.
 Integrar os dados gerados por outros sistemas internos, como por exemplos sistemas ERP ao sistema de checagem mobile.  
